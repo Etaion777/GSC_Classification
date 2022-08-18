@@ -47,7 +47,7 @@ DATASET_PATH = PROJECT_ROOT+'Datasets/GSC_Sub_Set_8/'
 BATCH_SIZE = 128
 LEARNING_RATE = 0.1
 MOMENTUM = 0.9
-NUM_EPOCHS = 5
+NUM_EPOCHS = 2
 WEIGHT_DECAY = 1e-5
 LOG_NAME = 'Training_WITH_VALIDATION'
 MODEL = 'mobilenetv3_small'
@@ -103,6 +103,14 @@ def main():
     txt_file.write('BATCH_SIZE: ' + str(args.batch_size)+'\n')
     txt_file.write('VALI_STEP: ' + str(args.vali_step)+'\n')
     
+    #---------------------------------
+    # Dataset Selection
+    #---------------------------------
+    if args.class_num == 35:
+        args.dataset_path = PROJECT_ROOT + 'Datasets/GSC_Dataset/'
+    elif args.class_num == 4:
+        args.dataset_path = PROJECT_ROOT + 'Datasets/GSC_Sub_Set/'
+
 
     #---------------------------------
     # Model Selection

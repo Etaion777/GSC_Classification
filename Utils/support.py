@@ -153,6 +153,7 @@ def acc_vali_graph(result_dic,title,save_name):
     plt.show()
     plt.close()
 
+def print_confusion_mat():
 
 def confusion_mat():
     array = [[385,   0,   0,   1,   1,   4,   5,  11],

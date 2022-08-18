@@ -23,11 +23,6 @@ import os
 import time
 from PIL import Image
 
-# -----------------------------------------
-# Set the label classes
-# -----------------------------------------
-# Get the class names of all 35 classes.
-label_list = ['one','two','three','four']
 
 # -----------------------------------------
 # MFCC feature extraction
