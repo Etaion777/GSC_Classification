@@ -41,9 +41,18 @@ import Transforms.proj_transforms as proj_transforms
 # System params.
 PROJECT_ROOT = proj_root.PROJECT_ROOT
 DATASET_PATH = PROJECT_ROOT+'Datasets/GSC_Sub_Set_8/'
+
+# 8-Class Example
 MODEL_PATH = PROJECT_ROOT+'Results/Training_WITH_VALIDATION_2022-08-18_122703/mobilenetv3_small_2022-08-18_123516.pth'
 SAVE_PATH = PROJECT_ROOT +'Results/Training_WITH_VALIDATION_2022-08-18_122703/'
 SAVE_NAME = "Confusion_Matrix.png"
+
+# # 4-Class Example
+# # Command: python MobileNetV3_Infer.py --class_num 4
+# MODEL_PATH = PROJECT_ROOT+'Results/Training_WITH_VALIDATION_2022-08-18_134700/mobilenetv3_small_2022-08-18_135047.pth'
+# SAVE_PATH = PROJECT_ROOT +'Results/Training_WITH_VALIDATION_2022-08-18_134700/'
+# SAVE_NAME = "Confusion_Matrix.png"
+
 
 # Training params
 BATCH_SIZE = 1
@@ -157,7 +166,7 @@ def main():
     print('='*50)
 
     # Show Confusion matrix.
-    support.confusion_mat(8,test_result_mat,args.save_path+args.save_name)
+    support.confusion_mat(args.class_num,test_result_mat,args.save_path+args.save_name)
 
 if __name__ == "__main__":
     main()

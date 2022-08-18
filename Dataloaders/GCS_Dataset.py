@@ -66,8 +66,6 @@ class SC_MFCC(Dataset):
         waveform = np.uint8(np.dstack((waveform,waveform,waveform))*255)
         waveform = Image.fromarray(waveform)
         waveform = waveform.resize(size=(256,256))
-        # waveform = np.array(waveform, dtype=np.float32)
-        # waveform = np.dstack((waveform,waveform,waveform)).transpose(2,1,0)
 
         if self.transform != None:
             waveform = self.transform(waveform)
