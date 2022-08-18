@@ -6,17 +6,13 @@ Gong Cheng
 
 York University
 
-Aug 11th, 2022
-
 
 # Project Instruction
 To run this project, the following steps need to be taken:
 1. Download the datafolder from the provided link.
 2. Extract all the dataset folders to ./Datasets
-3. Modify the following local project paths to your own paths:
-	3.1 Eval.py Line 9
-	3.2 MobileNetV3_Infer Line 42-44
-	3.3 MobileNetV3_Train_and_Vali 42-43
+3. Modify the following local project paths to your own paths in:
+	Utils.project_root
 
 # Training
 

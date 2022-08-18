@@ -110,7 +110,7 @@ def main():
         args.dataset_path = PROJECT_ROOT + 'Datasets/GSC_Dataset/'
     elif args.class_num == 4:
         args.dataset_path = PROJECT_ROOT + 'Datasets/GSC_Sub_Set/'
-
+    txt_file.write('CLASS_NUM: ' + str(args.class_num)+'\n')
 
     #---------------------------------
     # Model Selection
