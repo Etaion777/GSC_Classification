@@ -30,6 +30,7 @@ from torchvision import transforms, utils
 # ----------------------------------------
 from Models.mobilenetv3_small import MOBILENET_V3_SMALL
 import Utils.support as support
+import Utils.project_root as proj_root
 import Dataloaders.GCS_Dataset as GCS_Dataset
 import Transforms.proj_transforms as proj_transforms
 
@@ -38,9 +39,8 @@ import Transforms.proj_transforms as proj_transforms
 #==============================================
 
 # System params.
-dirname = os.path.dirname
-PROJECT_ROOT = '/home/gong/Gong/Pytorch_Sample_Projects/Speech_Classification_V2/'
-DATASET_PATH = '/home/gong/Gong/Pytorch_Sample_Projects/Speech_Classification_V2/Datasets/GSC_Sub_Set_8/'
+PROJECT_ROOT = proj_root.PROJECT_ROOT
+DATASET_PATH = PROJECT_ROOT+'Datasets/GSC_Sub_Set_8/'
 MODEL_PATH = PROJECT_ROOT+'Results/8-class/Training_WITH_VALIDATION_2022-08-11_011757/mobilenetv3_small_2022-08-11_013106.pth'
 
 # Training params
