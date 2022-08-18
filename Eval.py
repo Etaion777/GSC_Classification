@@ -8,7 +8,7 @@ import Utils.project_root as proj_root
 
 
 PROJECT_ROOT = proj_root.PROJECT_ROOT
-LOG_PATH = PROJECT_ROOT+'Results/8-class/Training_WITH_VALIDATION_2022-08-11_011757/Training_WITH_VALIDATION_2022-08-11_011757_LOG.txt'
+LOG_PATH = PROJECT_ROOT+'Results/Training_WITH_VALIDATION_2022-08-18_122703/Training_WITH_VALIDATION_2022-08-18_122703_LOG.txt'
 
 
 def main():

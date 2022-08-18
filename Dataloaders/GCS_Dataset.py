@@ -63,13 +63,15 @@ class SC_MFCC(Dataset):
         waveform, _ = torchaudio.load(self.wav_set[ind])
         waveform = mfcc_transform(waveform).numpy().squeeze()     
         waveform = (waveform-waveform.min())/(waveform-waveform.min()).max()
+        waveform = np.uint8(np.dstack((waveform,waveform,waveform))*255)
         waveform = Image.fromarray(waveform)
         waveform = waveform.resize(size=(256,256))
-        waveform = np.array(waveform, dtype=np.float32)
-        waveform = np.dstack((waveform,waveform,waveform)).transpose(2,1,0)
+        # waveform = np.array(waveform, dtype=np.float32)
+        # waveform = np.dstack((waveform,waveform,waveform)).transpose(2,1,0)
 
-        # if self.transform != None:
-        #     waveform = self.transform(waveform)
+        if self.transform != None:
+            waveform = self.transform(waveform)
+
 
         # print(img.shape)
 

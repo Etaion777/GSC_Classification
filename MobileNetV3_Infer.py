@@ -41,7 +41,7 @@ import Transforms.proj_transforms as proj_transforms
 # System params.
 PROJECT_ROOT = proj_root.PROJECT_ROOT
 DATASET_PATH = PROJECT_ROOT+'Datasets/GSC_Sub_Set_8/'
-MODEL_PATH = PROJECT_ROOT+'Results/Training_WITH_VALIDATION_2022-08-18_033433/mobilenetv3_small_2022-08-18_033710.pth'
+MODEL_PATH = PROJECT_ROOT+'Results/Training_WITH_VALIDATION_2022-08-18_122703/mobilenetv3_small_2022-08-18_123516.pth'
 
 # Training params
 BATCH_SIZE = 1
@@ -138,16 +138,15 @@ def main():
         # print(test_predicted.item())
         test_result_mat[test_predicted.item()][labels.item()]+=1
 
-
     test_acc = 100*test_correct/len(test_loader)
     test_by_class_acc = 100*(test_by_class/test_overall)
 
     print('='*50)
     print(f'Test Vol: {len(test_loader)}')
     print(f'Test_Acc: {test_acc:.2f}\n')
-    # print(f'[One: {test_by_class_acc[0]:.2f}| Two: {test_by_class_acc[1]:.2f}| Three: {test_by_class_acc[2]:.2f}| Four: {test_by_class_acc[3]:.2f}]|')
-    # print(f'[ Up: {test_by_class_acc[4]:.2f}] | Down: {test_by_class_acc[5]:.2f}|  Left: {test_by_class_acc[6]:.2f}|  Right: {test_by_class_acc[7]:.2f}')
-    # print(test_result_mat)
+    print(f'[One: {test_by_class_acc[0]:.2f}| Two: {test_by_class_acc[1]:.2f}| Three: {test_by_class_acc[2]:.2f}| Four: {test_by_class_acc[3]:.2f}]|')
+    print(f'[ Up: {test_by_class_acc[4]:.2f}] | Down: {test_by_class_acc[5]:.2f}|  Left: {test_by_class_acc[6]:.2f}|  Right: {test_by_class_acc[7]:.2f}')
+    print(test_result_mat)
 
 if __name__ == "__main__":
     main()
