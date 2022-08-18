@@ -42,6 +42,8 @@ import Transforms.proj_transforms as proj_transforms
 PROJECT_ROOT = proj_root.PROJECT_ROOT
 DATASET_PATH = PROJECT_ROOT+'Datasets/GSC_Sub_Set_8/'
 MODEL_PATH = PROJECT_ROOT+'Results/Training_WITH_VALIDATION_2022-08-18_122703/mobilenetv3_small_2022-08-18_123516.pth'
+SAVE_PATH = PROJECT_ROOT +'Results/Training_WITH_VALIDATION_2022-08-18_122703/'
+SAVE_NAME = "Confusion_Matrix.png"
 
 # Training params
 BATCH_SIZE = 1
@@ -55,6 +57,8 @@ CLASS_NUM = 8
 parser = argparse.ArgumentParser(description='inference')
 parser.add_argument('--dataset_path', default=DATASET_PATH)
 parser.add_argument('--model_path', default=MODEL_PATH)
+parser.add_argument('--save_path', default=SAVE_PATH)
+parser.add_argument('--save_name', default=SAVE_NAME)
 parser.add_argument('--batch_size', type=int, default=BATCH_SIZE)
 parser.add_argument('--model', default=MODEL)
 parser.add_argument('--class_num', type=int, default=CLASS_NUM)
@@ -141,12 +145,19 @@ def main():
     test_acc = 100*test_correct/len(test_loader)
     test_by_class_acc = 100*(test_by_class/test_overall)
 
+    #---------------------------------
+    # Display the inference results.
+    #---------------------------------
     print('='*50)
     print(f'Test Vol: {len(test_loader)}')
-    print(f'Test_Acc: {test_acc:.2f}\n')
-    print(f'[One: {test_by_class_acc[0]:.2f}| Two: {test_by_class_acc[1]:.2f}| Three: {test_by_class_acc[2]:.2f}| Four: {test_by_class_acc[3]:.2f}]|')
-    print(f'[ Up: {test_by_class_acc[4]:.2f}] | Down: {test_by_class_acc[5]:.2f}|  Left: {test_by_class_acc[6]:.2f}|  Right: {test_by_class_acc[7]:.2f}')
+    print(f'Test_Acc: {test_acc:.2f}')
+    support.print_labels(args.class_num,test_by_class_acc)
     print(test_result_mat)
+    print(support.class_options(args.class_num))
+    print('='*50)
+
+    # Show Confusion matrix.
+    support.confusion_mat(8,test_result_mat,args.save_path+args.save_name)
 
 if __name__ == "__main__":
     main()

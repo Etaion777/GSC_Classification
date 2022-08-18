@@ -82,9 +82,6 @@ def parse_log(input_path):
         line_counter+=1
         if line_counter >= 13:
             tmp_array = line.split()
-            # print(tmp_array)
-            # time.sleep(500)
-            # ['Epoch', '#1', 'Time:', '16.9s', 'Train_Loss:', '1.7508', 'Vali_Loss:', '1.4981', 'Vali_Acc:', '46.46']
             
             # Epoch number
             if 'epoch' not in dic:
@@ -153,20 +150,26 @@ def acc_vali_graph(result_dic,title,save_name):
     plt.show()
     plt.close()
 
-def confusion_mat():
-    array = [[385,   0,   0,   1,   1,   4,   5,  11],
-     [  1, 414,   8,   2,   2,   4,   0,   1],
-     [  0,   2, 396,   0,   0,   0,   4,  26],
-     [  6,   8,   1, 395,  15,   3,   3,   5],
-     [  3,   0,   0,   0, 405,   1,   3,   3],
-     [  0,   0,   0,   0,   2, 388,   0,   0],
-     [  2,   0,   0,   2,   0,   6, 391,   4],
-     [  2,   0,   0,   0,   0,   0,   6, 346]]
-    df_cm = pd.DataFrame(array, index = [i for i in ['one','two','three','four','up','down','left','right']],
-                      columns = [i for i in ['one','two','three','four','up','down','left','right']])
+def print_labels(class_num,byclass_acc):
+
+    # Get the class list.
+    class_list = class_options(class_num)
+    print('-'*50+'\n')
+    for ii in range(len(class_list)):
+        print(f'* {class_list[ii]}:{byclass_acc[ii]:.2f}')
+    print('\n'+'-'*50+'\n')
+
+
+
+def confusion_mat(class_num,mat_array,save_name):
+    df_cm = pd.DataFrame(mat_array, index = [i for i in class_options(class_num)],
+                      columns = [i for i in class_options(class_num)])
     plt.figure(figsize = (10,7))
     sn.heatmap(df_cm, annot=True,cmap='Blues')
+    plt.savefig(save_name)
     plt.show()
+    plt.close()
+
 
 
 def main():
