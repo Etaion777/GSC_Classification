@@ -21,7 +21,7 @@ def simple_transforms():
     transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))])
     return transform
 
-
+# MobileNetV3 Small transforms
 def mobilenetv3_small():
     transform = transforms.Compose([
             transforms.Resize(size=256),
