@@ -1,6 +1,6 @@
 
 
-#MObileNet V3-based Speech Commands Classifier using MFCC Features
+# MObileNet V3-based Speech Commands Classifier using MFCC Features
 
 Gong Cheng
 
@@ -9,7 +9,7 @@ York University
 Aug 11th, 2022
 
 
-#Project Instruction
+# Project Instruction
 To run this project, the following steps need to be taken:
 1. Download the datafolder from the provided link.
 2. Extract all the dataset folders to ./Datasets
@@ -18,7 +18,7 @@ To run this project, the following steps need to be taken:
 	3.2 MobileNetV3_Infer Line 42-44
 	3.3 MobileNetV3_Train_and_Vali 42-43
 
-#Training
+# Training
 
 To training with all 35 classes, please run:
 > $ python MobileNetV3_Train_and_Vali.py --class_num 35
@@ -30,13 +30,13 @@ To training with 4 classes for fast prototyping, please run:
 > $ python MobileNetV3_Train_and_Vali.py --class_num 4
 
 
-#Inference
+# Inference
 > $ python MobileNetV3_Infer.py --class_num 35 (8, or 4)
 
 A couple of helper scripts are provided in the file ./Utils/support.py that should be used independently.
 
 
-#Reference
+# Reference
 
 https://pytorch.org/tutorials/beginner/audio_preprocessing_tutorial.html
 
