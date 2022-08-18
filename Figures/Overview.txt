@@ -1,0 +1,26 @@
+
+
+
+Speech_Classification_V2 # Root
+	│
+	├── Dataloaders 			# The folder saves PyTorch Dataloaders.
+	├── Datasets # Dataset
+	│   ├── GSC_Dataset 		# 35-class GSC dataset
+	│   │   ├── Test
+	│   │   ├── Training
+	│   │   └── Validation
+	│   ├── GSC_DVI_List 		# Pytorch dataset split text files
+	│   ├── GSC_Sub_Set 	    # 4-class subset (for fast-prototyping)
+	│   └── GSC_Sub_Set_8 		# 8-class essential dataset 
+	│       ├── Test
+	│       ├── Training
+	│       └── Validation
+	├── Figures					# Figures for performance evaluation
+	├── Models					# DNNs
+	├── Results					# Trained networks & their logs
+	│   ├── 4-class
+	│   └── 8-class
+	├── Src					    # Additional code for future extension
+	├── Transforms				# Modules related to dataset transorfmations 
+	└── Utils					# Common suport module (e.g., parsing log, visualizing dataset, etc.)
+
