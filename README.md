@@ -2,10 +2,7 @@
 
 # MObileNet V3-based Speech Commands Classifier using MFCC Features
 
-Gong Cheng
-
-York University
-
+Etaion777
 
 # Project Instruction
 To run this project, the following steps need to be taken:
